@@ -1,0 +1,32 @@
+services:
+  web1:
+    restart: always
+    build: .
+    image: namanyash/sit737-5.2d
+    ports:
+      - "8080:5000"
+    healthcheck:
+      test: curl --fail http://localhost:5000/health || exit 1
+      interval: 40s
+      timeout: 30s
+      retries: 3
+      start_period: 60s
+    networks:
+      - bridgeNetwork
+  web2:
+    restart: always
+    build: .
+    image: namanyash/sit737-5.2d
+    ports:
+      - "8081:5000"
+    healthcheck:
+      test: curl --fail http://localhost:5000/health || exit 1
+      interval: 40s
+      timeout: 30s
+      retries: 3
+      start_period: 60s
+    networks:
+      - bridgeNetwork
+networks:
+  bridgeNetwork:
+    driver: bridge
