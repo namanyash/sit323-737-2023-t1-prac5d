@@ -11,7 +11,7 @@ Run the following command to build and run the project using docker-compose
 To test connection use the to the following URL
 `http://localhost:8080/getToken`
 
-## To test the health check
+## To test the connection between containers
 
 sh into the `web1` container using the following command
 `docker exec -it sit323-737-2023-t1-prac5d-web1-1 sh`
